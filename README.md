@@ -6,3 +6,5 @@ Coursera Machine Learning Techniques Materials and Homeworks:
 - Blending and Bagging
 - Adaptive Boosting
 - Decision Tree and Random Forest
+- Gradient Boosted Decision Tree
+- Neural Network and Deep Learning
