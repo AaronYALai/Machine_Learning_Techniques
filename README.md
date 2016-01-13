@@ -8,5 +8,6 @@ Coursera Machine Learning Techniques Materials and Homeworks:
 - Decision Tree and Random Forest
 - Gradient Boosted Decision Tree
 - kMeans, k-Nearest Neighbors
+- Radial Basis Function Network
 - Neural Network and Deep Learning
 - Autoencoder
