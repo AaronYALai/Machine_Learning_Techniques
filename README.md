@@ -7,4 +7,6 @@ Coursera Machine Learning Techniques Materials and Homeworks:
 - Adaptive Boosting
 - Decision Tree and Random Forest
 - Gradient Boosted Decision Tree
+- kMeans, k-Nearest Neighbors
 - Neural Network and Deep Learning
+- Autoencoder
