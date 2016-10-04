@@ -1,13 +1,12 @@
 Machine Learning
 ========
 
-Implementations and homeworks of two MOOCs courses:
+Implementations and homeworks of two MOOCs courses(offered by [**Hsuan-Tien Lin**](http://www.csie.ntu.edu.tw/~htlin/):
 - **Machine Learning Foundations**: corresponds to the first half-semester of the National Taiwan University (NTU) course "Machine Learning".
 - **Machine Learning Techniques**: the second half-semester of the NTU course "Machine Learning".
 
-two courses are based on the textbook [Learning from Data: A Short Course](http://amlbook.com/).
-Courses are offered by [**Hsuan-Tien Lin**](http://www.csie.ntu.edu.tw/~htlin/).
- 
+courses are based on the textbook [Learning from Data: A Short Course](http://amlbook.com/).
+
 About
 --------
 
@@ -20,8 +19,7 @@ Syllabus
 ### Machine Learning Foundations
 
 When Can Machines Learn?
-- The Learning Problem
-- Learning to Answer Yes/No
+- The Learning Problem; Learning to Answer Yes/No
 - Types of Learning
 - Feasibility of Learning
 
@@ -81,27 +79,19 @@ Content
 
 Usage
 --------
-At first, you should make sure you have [virtualenv](http://www.virtualenv.org/) installed.
+Clone the repo and use the [virtualenv](http://www.virtualenv.org/):
 
     git clone https://github.com/AaronYALai/Machine_Learning_Techniques
 
-after that, just cd to the folder:
-
     cd Machine_Learning_Techniques
-
-Then create your virtualenv:
 
     virtualenv venv
 
-Second, you need to enable the virtualenv by
-
     source venv/bin/activate
 
-Install all dependencies:
+Install all dependencies and run the model:
 
     pip install -r requirements.txt
-
-Run the model, ex.
 
     cd Autoencoder
     python autoencoder.py
