@@ -1,11 +1,12 @@
 Machine Learning
 ========
 
-Model implementations and homeworks of two MOOCs courses:
+Implementations and homeworks of two MOOCs courses:
 - **Machine Learning Foundations**: corresponds to the first half-semester of the National Taiwan University (NTU) course "Machine Learning".
 - **Machine Learning Techniques**: the second half-semester of the NTU course "Machine Learning".
 
-two courses are based on the textbook [Learning from Data: A Short Course](http://amlbook.com/).  
+two courses are based on the textbook [Learning from Data: A Short Course](http://amlbook.com/).
+Courses are offered by [**Hsuan-Tien Lin**](http://www.csie.ntu.edu.tw/~htlin/).
  
 About
 --------
@@ -19,53 +20,53 @@ Syllabus
 ### Machine Learning Foundations
 
 When Can Machines Learn?
--- The Learning Problem
--- Learning to Answer Yes/No
--- Types of Learning
--- Feasibility of Learning
+- The Learning Problem
+- Learning to Answer Yes/No
+- Types of Learning
+- Feasibility of Learning
 
 Why Can Machines Learn?
--- Training versus Testing
--- Theory of Generalization
--- The VC Dimension
--- Noise and Error
+- Training versus Testing
+- Theory of Generalization
+- The VC Dimension
+- Noise and Error
 
 How Can Machines Learn?
--- Linear Regression
--- Linear 'Soft' Classification
--- Linear Classification beyond Yes/No
--- Nonlinear Transformation
+- Linear Regression
+- Linear 'Soft' Classification
+- Linear Classification beyond Yes/No
+- Nonlinear Transformation
 
 How Can Machines Learn Better?
--- Hazard of Overfitting
--- Preventing Overfitting I: Regularization
--- Preventing Overfitting II: Validation
--- Three Learning Principles
+- Hazard of Overfitting
+- Preventing Overfitting I: Regularization
+- Preventing Overfitting II: Validation
+- Three Learning Principles
 
 ### Machine Learning Techniques
 
 Embedding Numerous Features
--- Linear Support Vector Machine
--- Dual Support Vector Machine
--- Kernel Support Vector Machine
--- Soft-Margin Support Vector Machine
--- Kernel Logistic Regression
--- Support Vector Regression
+- Linear Support Vector Machine
+- Dual Support Vector Machine
+- Kernel Support Vector Machine
+- Soft-Margin Support Vector Machine
+- Kernel Logistic Regression
+- Support Vector Regression
 
 Combining Predictive Features
--- Bootstrap Aggregation
--- Adaptive Boosting
--- Decision Tree
--- Random Forest
--- Gradient Boosted Decision Tree
+- Bootstrap Aggregation
+- Adaptive Boosting
+- Decision Tree
+- Random Forest
+- Gradient Boosted Decision Tree
 
 Distilling Hidden Features
--- Neural Network
--- Deep Learning
--- Radial Basis Function Network
--- Matrix Factorization
+- Neural Network
+- Deep Learning
+- Radial Basis Function Network
+- Matrix Factorization
 
-Implementation
+Content
 --------
 - Kernel SVM & Soft-Margin SVM
 - Kernel Logistic Regression and Support Vector Regression
@@ -108,5 +109,5 @@ Run the model, ex.
 
 Certificate
 --------
-### Machine Learning Foundations - [Course Certificate](https://www.coursera.org/account/accomplishments/records/2XGEscUkTTJKRtGU)
-### Machine Learning Techniques - [Course Certificate](https://www.coursera.org/account/accomplishments/verify/X8BGEERTNT)
+#### Machine Learning Foundations - [Course Certificate](https://www.coursera.org/account/accomplishments/records/2XGEscUkTTJKRtGU)
+#### Machine Learning Techniques - [Course Certificate](https://www.coursera.org/account/accomplishments/verify/X8BGEERTNT)
