@@ -8,9 +8,13 @@ Implementations and homeworks of two MOOCs courses(offered by [**Hsuan-Tien Lin*
 - **Machine Learning Foundations**: 
     * Corresponds to the first half-semester of the National Taiwan University (NTU) course "Machine Learning".
     * Introduce topics ranging from "When Can Machines Learn" to "Why", "How" and beyond.
+
 - **Machine Learning Techniques**:
     * The second half-semester of the NTU course "Machine Learning".
-    * Focus on three of those popular tools, namely embedding numerous features (kernel models, such as support vector machine), combining predictive features (aggregation models, such as adaptive boosting), and distilling hidden features (extraction models, such as deep learning).
+    * Three popular tools:
+        1. embedding numerous features (kernel models, such as support vector machine)
+        2. combining predictive features (aggregation models, such as adaptive boosting)
+        3. distilling hidden features (extraction models, such as deep learning).
 
 courses are based on the textbook [Learning from Data: A Short Course](http://amlbook.com/).
 
