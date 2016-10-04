@@ -1,7 +1,7 @@
 Machine Learning
 ========
 
-Implementations and homeworks of two MOOCs courses(offered by [**Hsuan-Tien Lin**](http://www.csie.ntu.edu.tw/~htlin/):
+Implementations and homeworks of two MOOCs courses(offered by [**Hsuan-Tien Lin**](http://www.csie.ntu.edu.tw/~htlin/)):
 - **Machine Learning Foundations**: corresponds to the first half-semester of the National Taiwan University (NTU) course "Machine Learning".
 - **Machine Learning Techniques**: the second half-semester of the NTU course "Machine Learning".
 
@@ -20,34 +20,25 @@ Syllabus
 
 When Can Machines Learn?
 - The Learning Problem; Learning to Answer Yes/No
-- Types of Learning
-- Feasibility of Learning
+- Types of Learning; Feasibility of Learning
 
 Why Can Machines Learn?
-- Training versus Testing
-- Theory of Generalization
-- The VC Dimension
-- Noise and Error
+- Training versus Testing; Theory of Generalization
+- The VC Dimension; Noise and Error
 
 How Can Machines Learn?
-- Linear Regression
-- Linear 'Soft' Classification
-- Linear Classification beyond Yes/No
-- Nonlinear Transformation
+- Linear Regression; Linear 'Soft' Classification
+- Linear Classification beyond Yes/No; Nonlinear Transformation
 
 How Can Machines Learn Better?
-- Hazard of Overfitting
-- Preventing Overfitting I: Regularization
-- Preventing Overfitting II: Validation
-- Three Learning Principles
+- Hazard of Overfitting; Preventing Overfitting I: Regularization
+- Preventing Overfitting II: Validation; Three Learning Principles
 
 ### Machine Learning Techniques
 
 Embedding Numerous Features
-- Linear Support Vector Machine
-- Dual Support Vector Machine
-- Kernel Support Vector Machine
-- Soft-Margin Support Vector Machine
+- Linear Support Vector Machine; Dual Support Vector Machine
+- Kernel Support Vector Machine; Soft-Margin Support Vector Machine
 - Kernel Logistic Regression
 - Support Vector Regression
 
