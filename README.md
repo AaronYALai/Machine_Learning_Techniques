@@ -1,17 +1,18 @@
 Machine Learning
 ========
 
-Implementations and homeworks of two MOOCs courses(offered by [**Hsuan-Tien Lin**](http://www.csie.ntu.edu.tw/~htlin/)):
-- **Machine Learning Foundations**: corresponds to the first half-semester of the National Taiwan University (NTU) course "Machine Learning".
-- **Machine Learning Techniques**: the second half-semester of the NTU course "Machine Learning".
-
-courses are based on the textbook [Learning from Data: A Short Course](http://amlbook.com/).
-
 About
 --------
 
-the instructor chooses to focus on what he believes to be the core topics that every student of the subject should know. The students shall enjoy a story-like flow moving from "When Can Machines Learn" to "Why", "How" and beyond.
+Implementations and homeworks of two MOOCs courses(offered by [**Hsuan-Tien Lin**](http://www.csie.ntu.edu.tw/~htlin/)):
+- **Machine Learning Foundations**: 
+..* Corresponds to the first half-semester of the National Taiwan University (NTU) course "Machine Learning".
+..* Introduce topics ranging from "When Can Machines Learn" to "Why", "How" and beyond.
+- **Machine Learning Techniques**:
+..* The second half-semester of the NTU course "Machine Learning".
+..* Focus on three of those popular tools, namely embedding numerous features (kernel models, such as support vector machine), combining predictive features (aggregation models, such as adaptive boosting), and distilling hidden features (extraction models, such as deep learning).
 
+courses are based on the textbook [Learning from Data: A Short Course](http://amlbook.com/).
 
 Syllabus
 --------
@@ -19,27 +20,27 @@ Syllabus
 ### Machine Learning Foundations
 
 When Can Machines Learn?
-- The Learning Problem | Learning to Answer Yes/No
-- Types of Learning | Feasibility of Learning
+- The Learning Problem  |  Learning to Answer Yes/No
+- Types of Learning  |  Feasibility of Learning
 
 Why Can Machines Learn?
-- Training versus Testing | Theory of Generalization
-- The VC Dimension | Noise and Error
+- Training versus Testing  |  Theory of Generalization
+- The VC Dimension  |  Noise and Error
 
 How Can Machines Learn?
-- Linear Regression | Linear 'Soft' Classification
-- Linear Classification beyond Yes/No | Nonlinear Transformation
+- Linear Regression  |  Linear 'Soft' Classification
+- Linear Classification beyond Yes/No  |  Nonlinear Transformation
 
 How Can Machines Learn Better?
-- Hazard of Overfitting | Preventing Overfitting I: Regularization
-- Preventing Overfitting II: Validation | Three Learning Principles
+- Hazard of Overfitting  |  Preventing Overfitting I: Regularization
+- Preventing Overfitting II: Validation  |  Three Learning Principles
 
 ### Machine Learning Techniques
 
 Embedding Numerous Features
-- Linear Support Vector Machine | Dual Support Vector Machine
-- Kernel Support Vector Machine | Soft-Margin Support Vector Machine
-- Kernel Logistic Regression | Support Vector Regression
+- Linear Support Vector Machine  |  Dual Support Vector Machine
+- Kernel Support Vector Machine  |  Soft-Margin Support Vector Machine
+- Kernel Logistic Regression  |  Support Vector Regression
 
 Combining Predictive Features
 - Bootstrap Aggregation | Adaptive Boosting
@@ -47,8 +48,8 @@ Combining Predictive Features
 - Gradient Boosted Decision Tree
 
 Distilling Hidden Features
-- Neural Network | Deep Learning
-- Radial Basis Function Network | Matrix Factorization
+- Neural Network  |  Deep Learning
+- Radial Basis Function Network  |  Matrix Factorization
 
 Content
 --------
@@ -80,6 +81,7 @@ Install all dependencies and run the model:
     pip install -r requirements.txt
 
     cd Autoencoder
+
     python autoencoder.py
 
 
