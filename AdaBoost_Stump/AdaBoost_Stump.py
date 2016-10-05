@@ -28,15 +28,15 @@ def memo(f):
 
 @memo
 def stump(args):
-    s, i, t, train_data = args
+    s, i, t, X = args
     """Decision stump for given direction s, dimension i, and threshold t"""
-    return train_data.apply(lambda x: s * ((x[i] > t) * 2 - 1), axis=1)
+    return np.apply_along_axis(lambda x: s * ((x[i] > t) * 2 - 1), 1, X)
 
 
-def Accuracy(s, i, theta, w, train_data):
+def accuracy(s, i, theta, w, X, y):
     """Calculate accuracy on training set for given decision stump"""
-    index = stump(s, i, theta, train_data) == train_data[2]
-    return (np.dot(np.array(index * 1), w), index)
+    index = (stump(s, i, theta, X) == y)
+    return (np.dot(index * 1, w), index)
 
 
 def make_thresholds(L):
@@ -45,92 +45,86 @@ def make_thresholds(L):
     return [(LS[i] + LS[i + 1]) / 2 for i in range(len(LS) - 1)]
 
 
-def AdaBoost_Training(train_data, T):
+def AdaBoost_Training(X, y, T):
     """T is the number iterations, train an AdaBoost binary classifer"""
     # Initialize weight vector
-    train_data['w'] = np.ones((100,)) / 100
+    weights = np.ones((X.shape[0],)) / X.shape[0]
     alpha = []
     g = []
     Thr = []
 
     # Compute threshold
     for i in range(2):
-        Thr.append(make_thresholds(train_data[i]))
+        Thr.append(make_thresholds(X[:, i]))
 
     for r in range(T):
         Max_Weighted_Accu = 0
         index = []
-        w0 = train_data['w'].values
 
         for i in range(2):
             for t in Thr[i]:
                 for s in [1, -1]:
-                    A, ind = Accuracy(s, i, t, w0, train_data)
+                    A, ind = accuracy(s, i, t, weights, X, y)
 
                     if A > Max_Weighted_Accu:
                         Max_Weighted_Accu, index = A, ind
                         best = s, i, t
 
-        r_2 = Max_Weighted_Accu / (sum(w0) - Max_Weighted_Accu)
+        r_2 = Max_Weighted_Accu / (sum(weights) - Max_Weighted_Accu)
         Rescale_Factor = np.sqrt(r_2)
 
         # Rescaling the weight vector
-        train_data['w'][index] /= Rescale_Factor
-        train_data['w'][~index] *= Rescale_Factor
+        weights[index] /= Rescale_Factor
+        weights[~index] *= Rescale_Factor
 
         alpha.append(np.log(Rescale_Factor))
         g.append(best)
 
-    return g, alpha
+        if r % 10 == 9:
+            print('\tNow is the %d-th iteration.' % (r + 1))
+
+    return g, alpha, weights
 
 
-def Predict_Accu_Train(g, alpha, T, train_data):
-    G = np.zeros((len(train_data),))
+def model_accuracy(g, alpha, T, X, y):
+    G = np.zeros((X.shape[0],))
     for i in range(T):
-        G += np.array(stump(*g[i])) * alpha[i]
+        params = list(g[i]) + [X]
+        G += np.array(stump(*params)) * alpha[i]
 
-    return sum(((G > 0) * 2 - 1) == train_data[2]) / len(train_data)
-
-
-@memo
-def predict_stump(args):
-    s, i, t, test_data = args
-    return test_data.apply(lambda x: s * ((x[i] > t) * 2 - 1), axis=1)
+    return sum(((G > 0) * 2 - 1) == y) / X.shape[0]
 
 
-def Predict_Accu_Test(g, alpha, T, test_data):
-    G = np.zeros((len(test_data),))
-    for i in range(T):
-        params = list(g[i]) + [train_data]
-        G += np.array(predict_stump(*params)) * alpha[i]
-
-    return sum(((G > 0) * 2 - 1) == test_data[2]) / len(test_data)
-
-
-def main():
+def run(T):
     train_data = pd.read_csv('Data/hw2_adaboost_train.dat', sep=' ',
                              header=None)
     test_data = pd.read_csv('Data/hw2_adaboost_test.dat', sep=' ', header=None)
 
-    print('Start Training...')
+    X = train_data[train_data.columns[:-1]].values
+    y = train_data[train_data.columns[-1]].values
+
+    X_test = test_data[test_data.columns[:-1]].values
+    y_test = test_data[test_data.columns[-1]].values
+
+    print('Start Training...\n')
     start = time.clock()
 
-    T = 300
-    g, alpha = AdaBoost_Training(train_data, T)
-    print('Done Training, %f seconds.' % (time.clock() - start))
+    g, alpha, weights = AdaBoost_Training(X, y, T)
 
-    train_accu = Predict_Accu_Train(g, alpha, T, train_data)
-    print('Accuracy on Training set: %.2f %%' % (100 * train_accu))
+    train_accu = model_accuracy(g, alpha, T, X, y)
+    print('\n\tAccuracy on Training set: %.2f %%' % (100 * train_accu))
 
-    test_accu = Predict_Accu_Test(g, alpha, T, test_data)
-    print('Accuracy on Testing set: %.2f %%' % (100 * test_accu))
+    test_accu = model_accuracy(g, alpha, T, X_test, y_test)
+    print('\tAccuracy on Testing set: %.2f %%' % (100 * test_accu))
 
     min_err = min(list(map(lambda x: 1 / (np.exp(2 * x) + 1), alpha)))
-    print('Smallest error of all stumps (train) %.4f %%' % (100 * min_err))
+    print('\tSmallest error of all stumps (train) %.2f %%' % (100 * min_err))
 
-    one_accu = sum(predict_stump(*g[0]) == test_data[2]) / 10.0
-    print('Accuracy on Testing set of one stump: %.2f %%' % (one_accu))
+    params = list(g[0]) + [X_test]
+    one_accu = sum(stump(*params) == y_test) * 100 / len(y_test)
+    print('\tAccuracy on Testing set of one stump: %.2f %%' % (one_accu))
 
+    print('\nDone. Using %f seconds.' % (time.clock() - start))
 
 if __name__ == '__main__':
-    main()
+    run(300)
