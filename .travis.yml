@@ -27,3 +27,7 @@ install:
 script:
   - THEANO_FLAGS='gcc.cxxflags="-march=core2"' py.test . --cov=./
   - flake8 ./
+
+
+after_success:
+  - coveralls
