@@ -8,9 +8,9 @@ python:
 
 
 before_install:
+  - sudo apt-get install g++ libopenblas-dev
   - pip install -U pip
   - pip install wheel
-  - sudo apt-get python-nose g++ libopenblas-dev
   - sudo pip install Theano
   - sudo apt-get update
 
