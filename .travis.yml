@@ -1,5 +1,7 @@
 language: python
 cache: pip
+sudo: required
+
 
 python:
   - "3.5"
@@ -8,6 +10,8 @@ python:
 before_install:
   - pip install -U pip
   - pip install wheel
+  - sudo apt-get python-nose g++ libopenblas-dev
+  - sudo pip install Theano
   - sudo apt-get update
 
 
