@@ -1,5 +1,9 @@
-# Adaptive Boosting and Least-square Support Vector Machine
-Implementation of AdaBoost with Decision Stump and Least-square SVM
+Adaptive Boosting with Decision Stump
+========
 
-- AdaBoost with Decision Stump
-- Least-square SVM: Ridge Regression with Gaussian-RBF kernel 
+About
+--------
+Implementation of **Adaptive Boosting with Decision Stump** for binary classification:
+- AdaBoost with Decision Stump: using Decision Stump as the base learner of AdaBoost
+
+### [**Course slides**](http://www.csie.ntu.edu.tw/~htlin/mooc/doc/208_present.pdf)
