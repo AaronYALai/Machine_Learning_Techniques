@@ -3,8 +3,7 @@ Support Vector Regression
 
 About
 --------
-Implementation of Support Vector Regression(or Least-square SVM): **Kernel Ridge Regression for Classification**
+Implementation of Support Vector Regression (or Least-square SVM) :
+- Least-square SVM: **Ridge Regression with Gaussian-RBF kernel for Classification**
 
-- Least-square SVM: Ridge Regression with **Gaussian-RBF kernel**
-
-[**Course slides**](http://www.csie.ntu.edu.tw/~htlin/mooc/doc/206_present.pdf)
+### [**Course slides**](http://www.csie.ntu.edu.tw/~htlin/mooc/doc/206_present.pdf)
