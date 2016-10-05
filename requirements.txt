@@ -22,6 +22,10 @@ numpy==1.11.1
 # https://pypi.python.org/pypi/pandas/0.18.1
 pandas==0.18.1
 
+# SciPy: a ecosystem of open-source software for mathematics, science, and engineering.
+# https://pypi.python.org/pypi/scipy/0.18.0rc2
+scipy==0.18.0
+
 # Theano: define, optimize, and efficiently evaluate  multi-dimensional arrays
 # https://pypi.python.org/pypi/Theano
 theano==0.8.2
