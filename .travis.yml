@@ -8,10 +8,8 @@ python:
 
 
 before_install:
-  - sudo apt-get install g++ libopenblas-dev
   - pip install -U pip
   - pip install wheel
-  - sudo pip install Theano
   - sudo apt-get update
 
 
@@ -27,5 +25,5 @@ install:
 
 
 script:
-  - py.test . --cov=./
+  - THEANO_FLAGS='gcc.cxxflags="-march=core2"' py.test . --cov=./
   - flake8 ./
