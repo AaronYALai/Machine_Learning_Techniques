@@ -1,11 +1,11 @@
-#Data: https://d396qusza40orc.cloudfront.net/ntumltwo/hw2_data/hw2_lssvm_all.dat
-#first 400 rows as training set and last 100 rows as testing set
+# Data: https://d396qusza40orc.cloudfront.net/ntumltwo/hw2_data/hw2_lssvm_all.dat
+# first 400 rows as training set and last 100 rows as testing set
 
 import numpy as np
 import pandas as pd
 import time
 
-LS_Data = pd.read_csv('hw2_lssvm_all.dat',sep=' ',header=None,skipinitialspace=True)
+LS_Data = pd.read_csv('Data/hw2_lssvm_all.dat',sep=' ',header=None,skipinitialspace=True)
 Train = LS_Data[:400]
 Test = LS_Data[400:]
 
