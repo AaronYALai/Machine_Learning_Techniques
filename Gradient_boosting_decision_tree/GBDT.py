@@ -113,13 +113,13 @@ class GBDTree(object):
             return self.tree_predict(X_t, layer + 1, 2*side + C)
 
 
-def main():
-    Train = pd.read_csv('Data/hw3_train.dat', sep=' ', header=None,
+def run_GBDT(base_dir='./'):
+    Train = pd.read_csv(base_dir + 'Data/hw3_train.dat', sep=' ', header=None,
                         names=[0, 1, 'y'])
     X_train = Train[[0, 1]].values
     y_train = np.ravel(Train[['y']])
 
-    Test = pd.read_csv('Data/hw3_test.dat', sep=' ', header=None,
+    Test = pd.read_csv(base_dir + 'Data/hw3_test.dat', sep=' ', header=None,
                        names=[0, 1, 'y'])
     X_test = Test[[0, 1]].values
     y_test = np.ravel(Test[['y']])
@@ -138,6 +138,11 @@ def main():
           (sum(np.array(ytest_predict) == y_test)*100 / Test.shape[0]))
 
     print("\nUsing %.3f seconds" % (time.clock()-Start))
+
+
+def main():
+    run_GBDT()
+
 
 if __name__ == '__main__':
     main()

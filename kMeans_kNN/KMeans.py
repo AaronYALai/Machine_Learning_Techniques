@@ -67,9 +67,9 @@ class KMeans(object):
         return Error
 
 
-def main():
-    Data = pd.read_csv('Data/hw4_kmeans_train.dat', header=None,
-                       delim_whitespace=True)
+def run_KMeans(base_dir='./'):
+    Data = pd.read_csv(base_dir + 'Data/hw4_kmeans_train.dat',
+                       header=None, delim_whitespace=True)
     print('Data loaded\n', Data.head())
 
     print('\nStart clustering...')
@@ -84,6 +84,10 @@ def main():
     print('\tAveraged Ein: %.4f, using %.2f seconds.' %
           (np.mean(Ein), time.clock() - start))
     print('\nCenters:\n', centers)
+
+
+def main():
+    run_KMeans()
 
 
 if __name__ == '__main__':

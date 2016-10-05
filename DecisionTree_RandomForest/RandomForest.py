@@ -1,8 +1,13 @@
 import numpy as np
 import pandas as pd
 import time
+import os
+import sys
 
-from DecisionTree import DTree
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(dir_path)
+
+from DecisionTree import DTree   # flake8: noqa
 
 
 # Random Forest inherits C&RT decision tree
@@ -43,27 +48,27 @@ def train_Forest(train_data, test_data, num, max_depth=100):
     return train_accu, test_accu
 
 
-def main():
+def run_RF(n_tree=300, n_forest=100, base_dir='./'):
     # Loading Data
-    train_data = pd.read_csv('Data/hw3_train.dat', sep=' ',
+    train_data = pd.read_csv(base_dir + 'Data/hw3_train.dat', sep=' ',
                              header=None, names=[0, 1, 'y'])
-    test_data = pd.read_csv('Data/hw3_test.dat', sep=' ',
+    test_data = pd.read_csv(base_dir + 'Data/hw3_test.dat', sep=' ',
                             header=None, names=[0, 1, 'y'])
 
-    print("Train on 1 Random Forest with 300 trees.")
+    print("Train on 1 Random Forest with %d trees." % n_tree)
     Forest_Start = time.clock()
-    train_accu, test_accu = train_Forest(train_data, test_data, 300)
+    train_accu, test_accu = train_Forest(train_data, test_data, n_tree)
     print("\tAccuracy on Train set: %.3f %%" % train_accu)
     print("\tAccuracy on Test set: %.3f %%" % test_accu)
     print("Using %.3f seconds\n" % (time.clock() - Forest_Start))
 
-    print("Train 100 Forests to get averaged accuracy.")
+    print("Train %d Forests to get averaged accuracy." % n_forest)
     Forests_Start = time.clock()
     Train_Accu = []
     Test_Accu = []
 
-    for i in range(100):
-        train_accu, test_accu = train_Forest(train_data, test_data, 300)
+    for i in range(n_forest):
+        train_accu, test_accu = train_Forest(train_data, test_data, n_tree)
         Train_Accu.append(train_accu)
         Test_Accu.append(test_accu)
 
@@ -71,20 +76,24 @@ def main():
     print("\tAccuracy on Test set: %.3f %%" % (np.mean(Test_Accu)))
     print("Using %.3f seconds\n" % (time.clock() - Forests_Start))
 
-    print("Get averaged accuracy on 100 Forests")
+    print("Get averaged accuracy on %d Forests" % n_forest)
     print(", whose trees have only 1 branch(Pruned).")
     Pruned_Forests_Start = time.clock()
     Train_Accu = []
     Test_Accu = []
 
-    for i in range(100):
-        train_accu, test_accu = train_Forest(train_data, test_data, 300, 1)
+    for i in range(n_forest):
+        train_accu, test_accu = train_Forest(train_data, test_data, n_tree, 1)
         Train_Accu.append(train_accu)
         Test_Accu.append(test_accu)
 
     print("\tAccuracy on Train set: %.3f %%" % (np.mean(Train_Accu)))
     print("\tAccuracy on Test set: %.3f %%" % (np.mean(Test_Accu)))
     print("Using %.3f seconds" % (time.clock() - Pruned_Forests_Start))
+
+
+def main():
+    run_RF()
 
 
 if __name__ == '__main__':

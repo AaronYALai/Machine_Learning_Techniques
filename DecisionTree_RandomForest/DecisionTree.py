@@ -70,11 +70,11 @@ class DTree(object):
             return self.predict(X, layer + 1, 2 * side + C)
 
 
-def main():
+def run_DTree(base_dir='./'):
     # Loading Data
-    train_data = pd.read_csv('Data/hw3_train.dat', sep=' ',
+    train_data = pd.read_csv(base_dir + 'Data/hw3_train.dat', sep=' ',
                              header=None, names=[0, 1, 'y'])
-    test_data = pd.read_csv('Data/hw3_test.dat', sep=' ',
+    test_data = pd.read_csv(base_dir + 'Data/hw3_test.dat', sep=' ',
                             header=None, names=[0, 1, 'y'])
 
     # Train on 1 decision tree
@@ -95,6 +95,10 @@ def main():
     print("\tAccuracy on Test set: %.3f %%" % test_accu)
 
     print("Using %.3f seconds" % (time.clock() - Tree_Start))
+
+
+def main():
+    run_DTree()
 
 
 if __name__ == '__main__':

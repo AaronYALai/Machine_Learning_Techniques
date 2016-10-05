@@ -95,10 +95,11 @@ def model_accuracy(g, alpha, T, X, y):
     return sum(((G > 0) * 2 - 1) == y) / X.shape[0]
 
 
-def run(T):
-    train_data = pd.read_csv('Data/hw2_adaboost_train.dat', sep=' ',
-                             header=None)
-    test_data = pd.read_csv('Data/hw2_adaboost_test.dat', sep=' ', header=None)
+def run_AdaBoost(T, base_dir='./'):
+    train_data = pd.read_csv(base_dir + 'Data/hw2_adaboost_train.dat',
+                             sep=' ', header=None)
+    test_data = pd.read_csv(base_dir + 'Data/hw2_adaboost_test.dat',
+                            sep=' ', header=None)
 
     X = train_data[train_data.columns[:-1]].values
     y = train_data[train_data.columns[-1]].values
@@ -126,5 +127,10 @@ def run(T):
 
     print('\nDone. Using %f seconds.' % (time.clock() - start))
 
+
+def main():
+    run_AdaBoost(300)
+
+
 if __name__ == '__main__':
-    run(300)
+    main()

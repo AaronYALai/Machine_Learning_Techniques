@@ -33,9 +33,11 @@ class kNN(object):
         return np.array(prediction)
 
 
-def main():
-    train_data = pd.read_csv('Data/hw4_knn_train.dat', sep=' ', header=None)
-    test_data = pd.read_csv('Data/hw4_knn_test.dat', sep=' ', header=None)
+def run_kNN(base_dir='./'):
+    train_data = pd.read_csv(base_dir + 'Data/hw4_knn_train.dat',
+                             sep=' ', header=None)
+    test_data = pd.read_csv(base_dir + 'Data/hw4_knn_test.dat',
+                            sep=' ', header=None)
     print('Data loaded. Start predicting...\n')
 
     start = time.clock()
@@ -54,6 +56,10 @@ def main():
     print('\tError rate on test set: %.2f %%' % (100 * Eout))
 
     print('\nUsing %.2f seconds' % (time.clock() - start))
+
+
+def main():
+    run_kNN()
 
 
 if __name__ == '__main__':

@@ -58,8 +58,8 @@ def predicts(beta, gamma, data):
     return np.array([g(beta, gamma, x) for x in data])
 
 
-def main():
-    LS_Data = pd.read_csv('Data/hw2_lssvm_all.dat', sep=' ',
+def run_SVR(base_dir='./'):
+    LS_Data = pd.read_csv(base_dir + 'Data/hw2_lssvm_all.dat', sep=' ',
                           header=None, skipinitialspace=True)
 
     train_data = LS_Data[:400]
@@ -102,6 +102,10 @@ def main():
     print('\tBest Test Accuracy %.2f %%, with lambda %.3f and gamma %.3f.' %
           (100 * Max_out, best_out[0], best_out[1]))
     print('Used %.2f seconds' % (time.clock() - start))
+
+
+def main():
+    run_SVR()
 
 
 if __name__ == '__main__':

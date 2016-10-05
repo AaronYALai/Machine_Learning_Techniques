@@ -66,11 +66,11 @@ class RBF_network(object):
         return centers
 
 
-def main():
+def run_RBF(N=10000):
     model = RBF_network()
-    X, y = np.random.random((10000, 2)), np.random.rand(10000)
+    X, y = np.random.random((N, 2)), np.random.rand(N)
     model.train(X, y)
 
 
 if __name__ == '__main__':
-    main()
+    run_RBF()

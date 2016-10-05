@@ -146,23 +146,25 @@ class NeuralNet(object):
         return X * 0 + 1 if grad else X
 
 
-def main():
+def run_NeuralNet(archi, num_model=50, base_dir='./'):
     # load data
-    Data = pd.read_csv('Data/hw4_nnet_train.dat', sep=' ', header=None)
+    Data = pd.read_csv(base_dir + 'Data/hw4_nnet_train.dat',
+                       sep=' ', header=None)
     Xt = Data[[0, 1]].values
     yt = Data[2].values
 
-    Test = pd.read_csv('Data/hw4_nnet_test.dat', sep=' ', header=None)
+    Test = pd.read_csv(base_dir + 'Data/hw4_nnet_test.dat',
+                       sep=' ', header=None)
     Xtest = Test[[0, 1]].values
     ytest = Test[2].values
 
     print('Data loaded. Start training 50 Neural Nets ...')
-    print('\tNeural Net neurons: 2 - 8 - 3 - 1')
+    print('\tNeural Net neurons: %s' % ' - '.join(map(str, archi)))
 
     start = time.clock()
     R = []
-    for i in range(50):
-        NN = NeuralNet([2, 8, 3, 1])
+    for i in range(num_model):
+        NN = NeuralNet(archi)
         NN.train(Xt, yt, epochs=2000, rate=0.01)
         Prediction = NN.predict(Xtest)
         R.append(np.sum((Prediction.T * ytest) < 0) / len(Prediction))
@@ -171,6 +173,11 @@ def main():
     Eout = np.mean(R)
     print('Using %.2f seconds. Averaged Error Rate = %.4f %%' %
           (time.clock() - start, Eout * 100))
+
+
+def main():
+    archi = [2, 8, 3, 1]
+    run_NeuralNet(archi)
 
 
 if __name__ == '__main__':

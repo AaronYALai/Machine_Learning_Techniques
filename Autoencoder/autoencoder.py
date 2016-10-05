@@ -146,16 +146,17 @@ class Autoencoder(object):
         return Z
 
 
-def main():
+def run_autoencoder(archi, base_dir='./'):
     np.set_printoptions(4)
-    data = pd.read_csv('Data/train.dat', header=None, delim_whitespace=True)
+    data = pd.read_csv(base_dir + 'Data/train.dat',
+                       header=None, delim_whitespace=True)
 
     Demo = [('tanh', 'RMSProp', 0.5), ('tanh', 'momentum', 0.5),
             ('tanh', 'NAG', 0.2), ('sigmoid', 'sgd', 0.5),
             ('ReLU', 'NAG', 0.2), ('sigmoid', 'RMSProp', 0.5)]
 
     for act, opti, mem in Demo:
-        coder = Autoencoder([9, 64, 32, 16, 2, 16, 32, 64, 9], batch=4,
+        coder = Autoencoder(archi, batch=4,
                             activ=act, update=opti, memo=mem, lr=0.003)
 
         print(act, '/', opti, ':')
@@ -165,6 +166,12 @@ def main():
         print('encode:\n', code[:3])
         print('decode:\n', coder.decode(code)[:3])
         print('original:\n', data.values[:3])
+
+
+def main():
+    archi = [9, 64, 32, 16, 2, 16, 32, 64, 9]
+    run_autoencoder(archi)
+
 
 if __name__ == "__main__":
     main()
