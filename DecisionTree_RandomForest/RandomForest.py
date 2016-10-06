@@ -7,7 +7,7 @@ import sys
 dir_path = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(dir_path)
 
-from DecisionTree import DTree   # flake8: noqa
+from DecisionTree import DTree   # noqa
 
 
 # Random Forest inherits C&RT decision tree
