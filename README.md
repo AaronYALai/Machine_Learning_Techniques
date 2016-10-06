@@ -4,7 +4,6 @@ Machine Learning
 [![Build Status](https://travis-ci.org/AaronYALai/Machine_Learning_Techniques.svg?branch=master)](https://travis-ci.org/AaronYALai/Machine_Learning_Techniques)
 [![Coverage Status](https://coveralls.io/repos/github/AaronYALai/Machine_Learning_Techniques/badge.svg?branch=master)](https://coveralls.io/github/AaronYALai/Machine_Learning_Techniques?branch=master)
 
-
 About
 --------
 
